@@ -1,0 +1,31 @@
+﻿@model Student
+
+@{
+    Layout = "_Layout2";
+    SelectList deptsl = new SelectList(ViewBag.Depts,"DeptId","Name");
+}
+    <form method="post">
+        <div class="form-group">
+            <input hidden asp-for="Id" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name">Student Name</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Student Email</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="form-group">
+             <label asp-for="DepartmentId">Student Department</label>
+            <select asp-for="DepartmentId" asp-items="deptsl">
+
+             </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-dark">Edit Student</button>
+    </form>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
